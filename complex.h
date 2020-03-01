@@ -5,6 +5,7 @@
  */
 
 using namespace std;
+#include <vector>
 class Complex
 {
 //variables    
