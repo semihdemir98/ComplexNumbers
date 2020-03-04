@@ -12,18 +12,19 @@ class Complex
 private:
     int real;
     int imaj;
+    vector <int> c_numbers;
 
 public:
     //constructors
     Complex(); // 1 Default Constructor
     Complex(int r); // 2 Conversion Constructor
     Complex(double r); // 3 Conversion Constructor
-    Complex(string comment); // 4 Conversion Constructor
+    Complex(const string &comment); // 4 Conversion Constructor
     Complex(int a, int b); // 5
 
     // 6 getter-setter methods
     int getter_real();
-    int getter_imaj();
+    int getter_imaj();          
     void setter_real(int a);
     void setter_imaj(int b);
 

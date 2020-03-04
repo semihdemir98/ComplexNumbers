@@ -5,6 +5,8 @@
  */
 
 #include <iostream>
+#include <string>
+#include <sstream> 
 #include "complex.h"
 #include <vector>
 
@@ -19,7 +21,44 @@ Complex::Complex(double r){ // ???
     real = r;
     imaj = 0;
 }
-Complex::Complex(string comment){}// ???
+Complex::Complex(const string &comment){
+    try
+    {   
+        /* vector <string> temp;
+        stringstream ss (comment);
+        string fixer;
+        char delim = ';, ';
+
+        while(getline(ss,fixer,delim)){
+            temp.push_back(fixer);
+        }
+        for(int i=0 ; i<temp.size(); i++){
+            cout << temp[i];
+        } */
+
+        string delim = "',',' '";
+        vector <string> list;
+        string temp = comment;
+        size_t i;
+        string token;
+        while((i = temp.find(delim)) != -1){
+            token = temp.substr(0,i);
+            list.push_back(token);
+            temp.erase(0,i+delim.length());
+        }
+        list.push_back(temp);
+        for(int i=0 ; i<temp.size(); i++){
+            c_numbers[i] = list[i]
+            cout << c_numbers[i];
+        }
+    }
+    catch(const std::exception& e)
+    {
+        cout << "Hatali girdiniz!" << endl;
+        std::cerr << e.what() << '\n';
+    }
+    
+}// ???
 Complex::Complex(int a, int b):real(a),imaj(b){}
 //-----getter&setter------//
 int Complex::getter_real(){return real;}
@@ -38,5 +77,9 @@ void Complex::subtract(Complex& a){
 void Complex::divide(Complex& a){
     Complex t1, t2;
     t1.real = a.real;
+}
+
+int main(){
+    Complex("3+i, 2+i,34-24i ");
 
 }
