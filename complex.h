@@ -10,8 +10,8 @@ class Complex
 {
 //variables    
 private:
-    int real;
-    int imaj;
+    double real;
+    double imaj;
 
 public:
     //constructors
@@ -22,8 +22,8 @@ public:
     Complex(int a, int b); // 5
 
     // 6 getter-setter methods
-    int getter_real();
-    int getter_imaj();          
+    double getter_real();
+    double getter_imaj();          
     void setter_real(int a);
     void setter_imaj(int b);
 
@@ -36,5 +36,12 @@ public:
     void print_complex();
 
     //sorting function
-    friend double sort(vector <Complex>& a);
+    /* void sort(vector <Complex>& a); */
+    //extra operator overloading
+   /*  void operator=(vector <Complex>& a){
+         real = a.;
+         imaj = a.imaj;
+    
+    }  */
+   
 };
