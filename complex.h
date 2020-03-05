@@ -12,7 +12,6 @@ class Complex
 private:
     int real;
     int imaj;
-    vector <int> c_numbers;
 
 public:
     //constructors
