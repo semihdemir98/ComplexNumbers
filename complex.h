@@ -3,7 +3,6 @@
  * hw02 - Complex Numbers
  * complex.h
  */
-
 using namespace std;
 #include <vector>
 class Complex
@@ -24,8 +23,8 @@ public:
     // 6 getter-setter methods
     double getter_real();
     double getter_imaj();          
-    void setter_real(int a);
-    void setter_imaj(int b);
+    void setter_real(double a);
+    void setter_imaj(double b);
 
     // 7-8-9 member functions
     void add(Complex& a);
@@ -36,12 +35,12 @@ public:
     void print_complex();
 
     //sorting function
-    /* void sort(vector <Complex>& a); */
-    //extra operator overloading
-   /*  void operator=(vector <Complex>& a){
-         real = a.;
-         imaj = a.imaj;
     
-    }  */
+    //extra operator overloading
+    void operator=(Complex &a){
+         real = a.real;
+         imaj = a.imaj;
+
+    }
    
 };
