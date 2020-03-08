@@ -101,8 +101,8 @@ void Complex::print_complex(){
         cout << getter_real() << getter_imaj() << "i"<<endl;
     }  
 }
-//-----sorting function------//
-void sort(vector<Complex> &v){
+//-----sorting global function------//
+void sort(const vector<Complex> &v){
     try
     {
         vector<Complex> temp;
@@ -119,7 +119,22 @@ void sort(vector<Complex> &v){
                     temp[j + 1] = _temp;
                 }
             }
-        }   
+        }
+        cout<< endl << "Real" << endl;   
+        for(auto i = 0; i < temp.size(); i++){
+            temp[i].print_complex();
+        }
+        //Image 
+        for(auto i = 0; i < temp.size() - 1; i++){
+            for(auto j = 0; j < temp.size() - i - 1; j++){
+                if(temp[j].getter_imaj() < temp[j + 1].getter_imaj()){
+                    _temp = temp[j];
+                    temp[j] = temp[j + 1];
+                    temp[j + 1] = _temp;
+                }
+            }
+        }
+        cout<< endl << "Imaginary" << endl;   
         for(auto i = 0; i < temp.size(); i++){
             temp[i].print_complex();
         }
@@ -132,29 +147,38 @@ void sort(vector<Complex> &v){
 }    
 
 int main(){
-    Complex a("-5 + 2i");
-    a.print_complex(); 
- 
-    /*  Complex a(3, 4);
-    Complex b(8, -2); 
-     a.divide(b);
-    a.print_complex();  */
-     
-     /*a.subtract(b);
-    a.print_complex(); */
-    
-    /* Complex a(6,22);
+    Complex a();// Default Consturctor Testing 1
+    Complex a1(21);//Conversion Consturctor Testing 2
+    Complex a2(12.1);//Conversion Consturctor Testing 3
+    Complex a3("-5 + 2i");//Conversion Consturctor Testing 4
+    Complex a4(3, 5);//Conversion Constructor Testing 5
+//  ------------------------------------------------------------
+    a1.print_complex();
+    a2.print_complex();
+    a3.print_complex();
+    a4.print_complex();
+//  -------------------------------------------------------------
+    a1.add(a4);
+    a1.print_complex();
+    a2.subtract(a4);
+    Complex a5(3, -7);
+    Complex a6(2, 6);
+    a5.divide(a6);
+    a5.print_complex();
+//  -------------------------------------------------------------
+    cout << endl << "Sorting" << endl;
     Complex b(42,32);
     Complex c(33,2);
     Complex d(-2,-266);
     Complex e(57,277);
+    Complex f(6,22);
     
     vector <Complex> temp;
-    temp.push_back(a);
     temp.push_back(b);
     temp.push_back(c);
     temp.push_back(d);
     temp.push_back(e);
-    sort(temp);  */
+    temp.push_back(f);
+    sort(temp); 
     
 }
